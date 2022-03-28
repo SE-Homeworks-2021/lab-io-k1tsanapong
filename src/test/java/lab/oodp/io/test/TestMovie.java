@@ -29,7 +29,7 @@ public class TestMovie {
 
 	@Test
 	public void testMovieWriteRead() throws IOException {
-		cw.start();
+
 		cr.start();
 		Movie[] movies = cw.getMovieData();
 		for(int i=0; i< movies.length; i++) {
