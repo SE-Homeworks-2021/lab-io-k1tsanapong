@@ -5,7 +5,7 @@ import java.io.*;
 import lab.oodp.Keyboard;
 
 public class MovieWriter {
-	String fileName = null;
+	String fileName = "movies.dat";
 	
 
 	public void setFileName(String fileName) {
@@ -16,8 +16,10 @@ public class MovieWriter {
 
 		// Get a file name from the user
 
-		System.out.print("Enter a file name: ");
-		String fileName = Keyboard.readInput();
+		if(fileName ==null) {
+			System.out.print("Enter a file name: ");
+			String fileName = Keyboard.readInput();
+		}
 
 
 		// Create and fill Movies array
