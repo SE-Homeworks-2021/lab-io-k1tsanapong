@@ -1,8 +1,10 @@
 package lab.oodp.io.movie;
 
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
+//import java.io.DataInputStream;
+//import java.io.FileInputStream;
+//import java.io.IOException;
 
 import lab.oodp.Keyboard;
 
@@ -49,9 +51,58 @@ public class MovieReader {
      * @return
      */
     public Movie[] loadMovies(String fileName) {
+
     	//TODO: remove return null below, load movies from data file, 
-        
-    	return null;
+
+        Movie[] films = new Movie[19];
+
+
+
+        File myFile = new File(fileName);
+//        try (BufferedReader reader = new BufferedReader(new FileReader(myFile)))
+//        {
+//            String line = null;
+//            while ((line = reader.readLine()) != null)
+//            {
+//                System.out.println(line);
+//
+//                i++;
+//            }
+//        }
+//
+//        catch (IOException e)
+//        {
+//            System.out.println("Error: " + e.getMessage());
+//        }
+
+//        File myFile = new File("myformattedtextfile.txt");
+
+        int i = 0;
+
+        try (Scanner scanner = new Scanner(myFile)) {
+            scanner.useDelimiter(",|\\r\\n");
+
+            while (scanner.hasNext()) {
+
+                String name = scanner.next();
+                int year = scanner.nextInt();
+                int lengthInMinutes = scanner.nextInt();
+                String director = scanner.next();
+
+                Movie film = new Movie(name,year,lengthInMinutes,director);
+
+                films[i] = film;
+                i++;
+
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+
+
+        return films;
 
     }
 
