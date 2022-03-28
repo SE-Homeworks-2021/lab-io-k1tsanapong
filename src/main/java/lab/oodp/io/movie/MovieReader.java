@@ -60,24 +60,41 @@ public class MovieReader {
 
         int i = 0;
 
-        try (Scanner scanner = new Scanner(myFile)) {
-            scanner.useDelimiter(",|\\r\\n");
+//        try (Scanner scanner = new Scanner(myFile)) {
+//            scanner.useDelimiter(",|\\r\\n");
+//
+//            while (scanner.hasNext()) {
+//
+//                String name = scanner.next();
+//                int year = scanner.nextInt();
+//                int lengthInMinutes = scanner.nextInt();
+//                String director = scanner.next();
+//
+//                Movie film = new Movie(name,year,lengthInMinutes,director);
+//
+//                films[i] = film;
+//                i++;
+//
+//            }
 
-            while (scanner.hasNext()) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(myFile)))
+        {
+            String[] fields = null;
+            String line = null;
 
-                String name = scanner.next();
-                int year = scanner.nextInt();
-                int lengthInMinutes = scanner.nextInt();
-                String director = scanner.next();
+            while ((line = reader.readLine()) != null) {
+                fields = line.split(",");
 
-                Movie film = new Movie(name,year,lengthInMinutes,director);
+                Movie film = new Movie(fields[0],Integer.valueOf(fields[1]),Integer.valueOf(fields[2]),fields[3]);
 
                 films[i] = film;
                 i++;
 
             }
 
-        } catch (IOException e) {
+        }
+
+        catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
