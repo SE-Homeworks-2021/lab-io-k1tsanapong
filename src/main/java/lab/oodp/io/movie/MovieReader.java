@@ -9,7 +9,7 @@ import java.util.Scanner;
 import lab.oodp.Keyboard;
 
 public class MovieReader {
-	String fileName = null;
+	String fileName = "movies.dat";
 	Movie[] films = null;
 	
     public void setFileName(String fileName) {
