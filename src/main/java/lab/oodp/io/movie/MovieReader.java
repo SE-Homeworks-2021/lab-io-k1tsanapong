@@ -9,28 +9,28 @@ import java.util.Scanner;
 import lab.oodp.Keyboard;
 
 public class MovieReader {
-	String fileName = "movies.dat";
-	Movie[] films = null;
-	
-    public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-    
-	public Movie[] getFilms() {
-		return films;
-	}
+    String fileName = "movies.dat";
+    Movie[] films = null;
 
-	public void start() {
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Movie[] getFilms() {
+        return films;
+    }
+
+    public void start() {
 
 
         // Get a file name from the user
-    	if(fileName == null) {
-	        System.out.print("Enter a file name: ");
-	        fileName = Keyboard.readInput();
-    	}
+        if(fileName == null) {
+            System.out.print("Enter a file name: ");
+            fileName = Keyboard.readInput();
+        }
 
         // Load the movie data
-       films = loadMovies(fileName);
+        films = loadMovies(fileName);
 
         // Do some stuff with the data to check that its working
         printMoviesArray(films);
@@ -52,30 +52,11 @@ public class MovieReader {
      */
     public Movie[] loadMovies(String fileName) {
 
-    	//TODO: remove return null below, load movies from data file, 
+        //TODO: remove return null below, load movies from data file,
 
         Movie[] films = new Movie[19];
 
-
-
         File myFile = new File(fileName);
-//        try (BufferedReader reader = new BufferedReader(new FileReader(myFile)))
-//        {
-//            String line = null;
-//            while ((line = reader.readLine()) != null)
-//            {
-//                System.out.println(line);
-//
-//                i++;
-//            }
-//        }
-//
-//        catch (IOException e)
-//        {
-//            System.out.println("Error: " + e.getMessage());
-//        }
-
-//        File myFile = new File("myformattedtextfile.txt");
 
         int i = 0;
 
